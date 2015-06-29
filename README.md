@@ -7,6 +7,7 @@ This module operates "synchronously" so you have an opportunity to attach event 
 cycle of the event loop as the one where the client is created.
 
 _This is a first draft and I'm open to renaming things and changing arguement structures etc._
+_Yes, I realise this should probably be called a redis client factory but thats not quite as catchy and I didn't realise that at the time_
 
 Major Props / big shout / thanks to [Jose-Luis Rivas / ghostbar](https://github.com/ghostbar) for writing the majority
 of the option parsing code that I've basically just extracted into a module.
@@ -48,17 +49,20 @@ var redisFactory = require('basic-redis-factory');
 var client = redisFactory(redis, opts);
 ```
 
-it's arguements are 
+it's arguments are 
 - `redis`: the redis module to use
 - `opts` : either a url connection string or an object
 
-if opts is an object then the factory will look for for following keys on the object
-and if they are not found fallback to defaults
-- `host`: the host to connect to (default '127.0.0.1').
-- `port`: the port to connect to (default `6379`).
+if opts is an object then the factory will look for the following keys on the object
+and fallback to defaults for any missing values (host: `127.0.01`, port: `6379`, no authentication).
+
+- `url` : a url connection string.
+- `host`: the host to connect to.
+- `port`: the port to connect to.
 - `password`: the password to authenticate with, if not supplied then no auth will applied.
 - `opts`: an options object as expected by [`redis.createClient`](https://github.com/mranney/node_redis#rediscreateclient).
 
+If `opts.url` is supplied then `opts.host`, `opts.port`, and `opts.password` keys will be ignored.
 
 
 A `factory` function is available on the main export. This function allows you have a factory instance that is bound to a redis module.

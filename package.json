@@ -1,6 +1,6 @@
 {
   "name": "basic-redis-factory",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "a redis client factory to simplify redis client creation for basic use cases",
   "main": "index.js",
   "bugs": "https://github.com/sandfox/node-basic-redis-factory",
