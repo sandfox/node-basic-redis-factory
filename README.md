@@ -13,6 +13,8 @@ of the option parsing code that I've basically just extracted into a module.
 
 ## Example
 
+also see the `/examples` folder for working demos
+
 ```javascript
 
 var redisFactory = require('basic-redis-factory');

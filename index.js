@@ -42,6 +42,8 @@ function simpleRedisFactory(redisModule, opts){
         client.auth(opts.password);
     }
 
+    return client;
+
 }
 
 module.exports = simpleRedisFactory;
@@ -50,7 +52,7 @@ module.exports = simpleRedisFactory;
 function simpleRedisFactoryFactory(redisModule){
 
     return function factoryFactory(opts){
-        simpleRedisFactory(redisModule, opts);
+        return simpleRedisFactory(redisModule, opts);
     };
 
 }
