@@ -1,0 +1,20 @@
+{
+  "name": "basic-redis-factory",
+  "version": "0.0.1",
+  "description": "a redis client factory to simplify redis client creation for basic use cases",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint index.js"
+  },
+  "keywords": [
+    "redis",
+    "factory",
+    "client"
+  ],
+  "author": "sandfox",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^0.24.0"
+  }
+}
